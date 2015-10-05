@@ -1,0 +1,25 @@
+<%= f.input :Institute, :input_html => {'required'=>' ', :data => {'parsley-trigger'=> 'blur change'} }, label: "Institution" %>
+    <%= f.input :Designation, :input_html => {'required'=>' ', :data => {'parsley-trigger'=> 'blur change'} } %>
+<div class="row">
+    <div class="col-xs-6">
+      <%= f.input :from_date, as: :string , label: "Start Year", input_html: { class: "datetimepicker", id: "start" }  %>
+    </div>
+    <div class="col-xs-6">
+      <%= f.input :to_date, as: :string, label: "End Year", input_html: { class: "datetimepicker", id: "end" } %>
+    </div>
+     </div>
+ <script>
+    $('.datetimepicker').datetimepicker({
+                 viewMode: 'years',
+                 format: 'MM/YYYY',
+             });
+             $('#end').data("DateTimePicker").maxDate(new Date());
+             $('#start').data("DateTimePicker").maxDate(new Date());
+  
+             $("#start").on("dp.change", function (e) {
+             $('#end').data("DateTimePicker").minDate(e.date);
+         });
+         $("#end").on("dp.change", function (e) {
+             $('#start').data("DateTimePicker").maxDate(e.date);
+         });
+</script>

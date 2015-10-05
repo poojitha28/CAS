@@ -1,0 +1,32 @@
+  
+<div class="<%= size %> full-card">
+  <!-- This will be the card that is active. Note that there should only be one card active. -->
+  <div class="flip-card">
+      <a class="card label-info icon" style="background-color: #eee" href="<%= link %>">
+
+      <!-- The <h6> can also be a <img> which will be centered. -->
+      <center>
+        <i class="<%= icon %> icon-size"></i>
+      </center>
+      <center>
+        <br>
+          <div class="text-size"> <%= type %> </div>
+      </center>
+      <hr>
+    </a>
+    <!-- This will be the button to trigger an animation. You will have to hook it yourself! -->
+  </div>
+</div>
+<style>
+  .label-info[href]:hover, .label-info[href]:focus{
+     background-color: #777;
+  }
+  .label-info[href]:hover.home:hover, .label-info[href]:focus.home:focus
+  {
+      background-color: #fff;
+  }
+  .flip-card{
+    margin-left: -5px;
+    margin-right: -5px;
+  }
+</style>

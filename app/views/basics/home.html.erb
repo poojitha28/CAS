@@ -1,0 +1,19 @@
+<div class="row" id="example-row">
+  <!-- Note the "full-card" class which stands for only one card. Add multiple "full-card" for more cards.  -->
+  <div class="row">
+    <div class="col-xs-12 col-md-10 col-md-offset-2">
+      <%= render 'card', type: "Personal Details" , icon: "mdi-social-person", link: "/info", size: "col-xs-6 col-sm-4 col-md-3" %>
+      <%= render 'card', type: "Education", icon: "mdi-maps-local-library", link: "/education/new", size: "col-xs-6 col-sm-4 col-md-3" %>
+      <%= render 'card', type: "Experience", icon: "mdi-social-school", link: "/work/new", size: "col-xs-6 col-sm-4 col-md-3"%>
+     
+    </div>
+  </div>
+</div>
+
+
+
+<style>
+  a, a:hover, a:focus {
+   box-shadow: 5px;
+  }
+</style>

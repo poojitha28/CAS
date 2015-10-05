@@ -1,28 +1,26 @@
-<div class="authform">
-  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :role => 'form'}) do |f| %>
-    <h3>Sign in</h3>
-    <%= devise_error_messages! %>
-    <div class="form-group">
-      <%- if devise_mapping.registerable? %>
-        <%= link_to 'Sign up', new_registration_path(resource_name), class: 'right'  %>
-      <% end -%>
-      <%= f.label :email %>
-      <%= f.email_field :email, :autofocus => true, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%- if devise_mapping.recoverable? %>
-        <%= link_to "Forgot password?", new_password_path(resource_name), class: 'right' %>
-      <% end -%>
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-    </div>
-      <%= f.submit 'Sign in', :class => 'button right' %>
-      <% if devise_mapping.rememberable? -%>
-        <div class="checkbox" style="width:150px">
-          <label>
-            <%= f.check_box :remember_me %> Remember me
-          </label>
+<div class="row">
+  <div class="col-xs-12 col-lg-10 col-lg-offset-1">
+    <div class="well">
+             <center><h3 style= "margin-top: -15px"><b>Sign In</b></h3></center>
+      <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {'parsley-validate' => ''}) do |f| %>
+        <%= devise_error_messages! %>
+        <div class="row">
+          <div class="col-xs-12 col-lg-10 col-lg-offset-1">
+            <%= f.input :email, :input_html => {'data-parsley-required'=> 'true', :data => {'parsley-trigger'=> 'blur change'} }  %>
+            <%= f.input :password , :input_html => {'data-parsley-required'=> 'true', :data => {'parsley-trigger'=> 'blur change'} } %>
+            <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+              <%= link_to "Forgot your password?", new_password_path(resource_name) %>
+            <% end -%>
+            <br/>
+            <%= f.submit 'Sign in', :class => "btn btn-primary"%>
+            <br/>
+            New User? <%= link_to "Sign Up", new_user_registration_path %>
+          </div>
         </div>
-      <% end -%>
-  <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
+<script type="text/javascript">
+  $('#new_user').parsley();
+</script>

@@ -1,6 +1,19 @@
 Rails.application.routes.draw do
-  root to: 'welcome#index'
   devise_for :users
+   devise_scope :user do
+   authenticated :user do
+    root :to => 'basics#home', as: :authenticated_root
+   end
+   unauthenticated :user do
+    root :to => 'logout#home', as: :unauthenticated_root
+   end
+  end
+   get 'info' => 'basics#info'
+    post 'info/create' => 'basics#info_create'
+    get 'work/new' => 'basics#work_new'
+     post 'work' => 'basics#work_create'
+    get 'education/new' => 'basics#education_new'
+     post 'education' => 'basics#education_create'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

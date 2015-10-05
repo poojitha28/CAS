@@ -11,7 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150929081032) do
+ActiveRecord::Schema.define(version: 20151005120626) do
+
+  create_table "education_details", force: :cascade do |t|
+    t.string   "programme"
+    t.string   "period"
+    t.string   "university"
+    t.float    "marks"
+    t.string   "class"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+  end
+
+  create_table "infos", force: :cascade do |t|
+    t.string   "fname"
+    t.string   "lname"
+    t.string   "designation"
+    t.string   "dept"
+    t.string   "post_held"
+    t.string   "ein"
+    t.date     "date_of_app"
+    t.date     "dob"
+    t.text     "address"
+    t.string   "contact_no"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -30,5 +57,15 @@ ActiveRecord::Schema.define(version: 20150929081032) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "work_experiences", force: :cascade do |t|
+    t.string   "Institute"
+    t.string   "Designation"
+    t.date     "from_date"
+    t.date     "to_date"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+  end
 
 end

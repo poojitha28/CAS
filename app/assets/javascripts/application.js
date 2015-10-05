@@ -15,7 +15,9 @@
 //= require cocoon
 //= require underscore
 //= require dependent-fields
-//= require parsleyjs
+//= require parsley
+//= require moment
+//= require bootstrap-datetimepicker
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
