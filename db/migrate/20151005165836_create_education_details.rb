@@ -5,7 +5,8 @@ class CreateEducationDetails < ActiveRecord::Migration
       t.string :period
       t.string :university
       t.float :marks
-      t.string :class
+      t.string :class_obtained
+      t.integer :user_id
 
       t.timestamps null: false
     end

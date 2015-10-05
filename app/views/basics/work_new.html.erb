@@ -7,7 +7,7 @@
       </div>
             <center><h3 style= "margin-top: -15px"><b>Add WorkExperience</b></h3></center>
 
-      <%= simple_form_for @work, :url => { :controller => "basics", :action => "work_create" }, :html => {:method => :post,  'parsley-validate' => '' } do |f| %>
+      <%= simple_form_for @work, :url => { :controller => "basics", :action => "work_create" }, :html => {:method => :post,  'parsley-validate' => '' },  defaults: { :input_html => {'data-parsley-required'=> 'true' , :data => {'parsley-trigger'=> 'blur'} } } do |f| %>
             <%= render 'work_experience_fields', :f => f %>
         <center><%= f.submit "submit", :class => "btn btn-primary" %>
         </center>
@@ -16,5 +16,5 @@
   </div>
 </div>
 <script>
-  $('#work_new').parsley();
+  $('#new_work_experience').parsley();
 </script>

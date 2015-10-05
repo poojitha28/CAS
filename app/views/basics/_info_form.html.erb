@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-xs-6">
+      <%= f.input :fname, label: "First Name"  %>
+    </div>
+    <div class="col-xs-6">
+      <%= f.input :lname, label: "Last Name"  %>
+    </div>
+     </div>
+    <div class="row">
+    <div class="col-xs-6">
+      <%= f.input :designation, label: "AICTE Designation" %>
+    </div>
+    <div class="col-xs-6">
+      <%= f.input :post_held %>
+    </div>
+     </div>
+     <div class="row">
+    <div class="col-xs-6">
+       <%= f.input :dept, label: "Department" %>
+    </div>
+    <div class="col-xs-6">
+    <%= f.input :ein, label: "Employee Identification Number" %>
+    </div>
+     </div>
+     <div class="row">
+    <div class="col-xs-6">
+      <%= f.input :date_of_app, as: :string, label: "Date of Appointment to Present Post", input_html: { class: "datetimepicker" } %>
+    </div>
+    <div class="col-xs-6">
+    <%= f.input :dob, as: :string, label: "Date of birth", input_html: { class: "datetimepicker" } %>
+    </div>
+     </div>
+     <%= f.input :address, as: :text %>
+      <%= f.input :contact_no %>
+ <script>
+    $('.datetimepicker').datetimepicker({
+                 viewMode: 'years',
+                  format: 'DD-MM-YYYY'
+             });
+             $('#end').data("DateTimePicker").maxDate(new Date());
+             $('#start').data("DateTimePicker").maxDate(new Date());
+  
+</script>

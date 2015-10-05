@@ -5,6 +5,7 @@ class CreateWorkExperiences < ActiveRecord::Migration
       t.string :Designation
       t.date :from_date
       t.date :to_date
+      t.integer :user_id
 
       t.timestamps null: false
     end

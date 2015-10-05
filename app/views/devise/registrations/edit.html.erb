@@ -1,5 +1,7 @@
-<div class="authform">
-  <h3>Edit <%= resource_name.to_s.humanize %></h3>
+<div class="row">
+  <div class="col-xs-12 col-lg-10 col-lg-offset-1">
+    <div class="well">
+             <center><h3 style= "margin-top: -15px"><b>Edit My Account</b></h3></center>
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :role => 'form'}) do |f| %>
     <%= devise_error_messages! %>
     <div class="form-group">
@@ -27,11 +29,13 @@
         <%= f.password_field :current_password, class: 'form-control' %>
       </div>
     </fieldset>
-    <%= f.submit 'Update', :class => 'button right' %>
+    <%= f.submit 'Update', :class => 'btn btn-primary' %>
   <% end %>
-</div>
-<div class="authform">
+</div> 
+<div class="well">
 <h3>Cancel Account</h3>
 <p>Unhappy? We'll be sad to see you go.</p>
-<%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'button right' %>
+<%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-danger' %>
+</div>
+ </div>
 </div>

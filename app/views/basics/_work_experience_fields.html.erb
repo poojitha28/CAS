@@ -1,5 +1,5 @@
-<%= f.input :Institute, :input_html => {'required'=>' ', :data => {'parsley-trigger'=> 'blur change'} }, label: "Institution" %>
-    <%= f.input :Designation, :input_html => {'required'=>' ', :data => {'parsley-trigger'=> 'blur change'} } %>
+<%= f.input :Institute, label: "Institution" %>
+    <%= f.input :Designation %>
 <div class="row">
     <div class="col-xs-6">
       <%= f.input :from_date, as: :string , label: "Start Year", input_html: { class: "datetimepicker", id: "start" }  %>

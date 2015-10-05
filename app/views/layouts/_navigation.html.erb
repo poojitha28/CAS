@@ -12,6 +12,7 @@
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
+        <%= link_to '<span class="glyphicon glyphicon-home"></span>'.html_safe, authenticated_root_path %>
         <%= render 'layouts/navigation_links' %>
       </ul>
     </div>

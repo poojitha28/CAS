@@ -11,6 +11,7 @@ class CreateInfos < ActiveRecord::Migration
       t.date :dob
       t.text :address
       t.string :contact_no
+      t.integer :user_id
 
       t.timestamps null: false
     end

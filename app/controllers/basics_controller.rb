@@ -1,12 +1,25 @@
 class BasicsController < ApplicationController
     def info
-     
+     @info = Info.new
     end
+    def info_create
+        @info = Info.create(info_params)
+          @info.user_id = current_user.id
+        @info.save
+        redirect_to authenticated_root_path
+   end
     def home
     
     end
     def education_new
+        @education = EducationDetail.new
     end
+    def education_create
+        @education = EducationDetail.create(education_params)
+          @education.user_id = current_user.id
+        @education.save
+        redirect_to authenticated_root_path
+   end
     def work_new
         @work = WorkExperience.new
     end
@@ -21,6 +34,12 @@ class BasicsController < ApplicationController
         @work.save
         redirect_to authenticated_root_path
    end
+    def info_params
+    params.require(:info).permit(:fname, :lname, :designation, :dept, :post_held, :ein, :date_of_app, :dob, :address, :contact_no)
+  end
+    def education_params
+    params.require(:education_detail).permit(:programme, :period, :university, :marks, :class_obtained)
+  end
     def work_params
     params.require(:work_experience).permit(:Institute, :Designation, :to_date, :from_date)
   end
