@@ -6,6 +6,7 @@ class BasicsController < ApplicationController
         @info = Info.create(info_params)
           @info.user_id = current_user.id
         @info.save
+         flash[:notice] = "Personal Info Added Successfully"
         redirect_to authenticated_root_path
    end
     def home
@@ -18,6 +19,7 @@ class BasicsController < ApplicationController
         @education = EducationDetail.create(education_params)
           @education.user_id = current_user.id
         @education.save
+        flash[:notice] = "Education Details Added Successfully"
         redirect_to authenticated_root_path
    end
     def work_new
@@ -32,6 +34,7 @@ class BasicsController < ApplicationController
         @work = WorkExperience.create(work_params)
           @work.user_id = current_user.id
         @work.save
+     flash[:notice] = "Work Experience Added Successfully"
         redirect_to authenticated_root_path
    end
     def info_params

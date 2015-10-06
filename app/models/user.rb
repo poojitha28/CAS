@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :education_details
   has_many :work_experiences
+   has_one :info
 end
