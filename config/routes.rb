@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     root :to => 'logout#home', as: :unauthenticated_root
    end
   end
+  get 'show/details' => 'basics#show', as: :show_details
    get 'info' => 'basics#info'
     post 'info/create' => 'basics#info_create'
     get 'work/new' => 'basics#work_new'

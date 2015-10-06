@@ -1,0 +1,74 @@
+ <div class="row">
+     <div class="col-xs-12 col-md-10 col-md-offset-1">
+<div class="well"> 
+        <h3>
+          <div class="mdi-social-person"></div>
+           Personal Details</h3>
+        <div class="table-responsive">
+<table class="table   table-striped">
+    <tr>
+        <td>Name</td>
+        <td><%= @personal.fname  %> <%= @personal.lname %></td>
+    </tr>
+  <tr>
+        <td>AICTE Designation</td>
+        <td><%= @personal.designation  %> </td>
+    </tr>
+    <tr>
+        <td>Department</td>
+        <td><%= @personal.dept  %> </td>
+    </tr>
+    <tr>
+        <td>Post held</td>
+        <td><%= @personal.post_held  %> </td>
+    </tr>
+    <tr>
+        <td>Employee Identification Number</td>
+        <td><%= @personal.ein  %> </td>
+    </tr>
+    <tr>
+        <td>Date of Appointment</td>
+        <td><%= @personal.date_of_app  %> </td>
+    </tr>
+    <tr>
+        <td>Date of birth</td>
+        <td><%= @personal.dob  %> </td>
+    </tr>
+    <tr>
+        <td>Address</td>
+        <td><%= @personal.address  %> </td>
+    </tr>
+    <tr>
+        <td>Contact details </td>
+        <td>Email: <%= current_user.email %><br/>
+        Mobile No: <%= @personal.contact_no  %> </td>
+    </tr>
+ </table>
+</div>
+ <% if @education_details.length != 0  %>
+        <h3>
+          <div class="mdi-maps-local-library"></div>
+           Education</h3>
+        <div class="table-responsive">
+          <table class="table   table-striped">
+            <tr>
+               <% if current_user == @user %> 
+              <th>  </th>
+              	
+              <th>  </th>
+              <% end %> 
+              <th>Programme</th>
+              <th>Period of study</th>
+              <th>University</th>
+              <th>Marks/CGPA</th>
+              <th>Class Obtained</th>
+            </tr>
+            
+            <% @education_details.each do |education| %>
+              <%= render 'education_details',  e: education %>
+            <% end%>
+          </table>
+        </div>
+      <% end %>
+</div>
+</div></div>

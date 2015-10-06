@@ -1,4 +1,5 @@
 class BasicsController < ApplicationController
+    before_filter :authenticate_user!
     def info
      @info = Info.new
     end
@@ -8,6 +9,11 @@ class BasicsController < ApplicationController
         @info.save
          flash[:notice] = "Personal Info Added Successfully"
         redirect_to authenticated_root_path
+   end
+   def show
+     @personal = Info.find_by(user_id: current_user.id)
+     @education_details = EducationDetail.where(user_id: current_user.id)
+     @work_experience = WorkExperience.where(user_id: current_user.id)
    end
     def home
     
