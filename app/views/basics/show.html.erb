@@ -64,8 +64,38 @@
               <th>Class Obtained</th>
             </tr>
             
-            <% @education_details.each do |education| %>
-              <%= render 'education_details',  e: education %>
+            <% @education_details.each do |e| %>
+              <tr> 
+                <td><%= e.programme %></td>
+                <td><%= e.period %> </td>
+                <td> <%= e.university %></td>
+                <td><%= e.marks %></td>
+                <td><%= e.class_obtained %></td>
+               </tr>
+            <% end%>
+          </table>
+        </div>
+      <% end %>
+      <% if @work_experiences.length != 0  %>
+        <h3>
+          <div class="mdi-social-school"></div>
+           Work Experience</h3>
+        <div class="table-responsive">
+          <table class="table   table-striped">
+            <tr>
+              <th>Institute</th>
+              <th>Designation</th>
+              <th>From Date</th>
+              <th>To Date</th>
+            </tr>
+            
+            <% @work_experiences.each do |e| %>
+              <tr> 
+                <td><%= e.Institute %></td>
+                <td><%= e.Designation %> </td>
+                <td> <%= e.from_date %></td>
+                <td><%= e.to_date %></td>
+               </tr>
             <% end%>
           </table>
         </div>

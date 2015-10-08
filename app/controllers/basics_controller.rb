@@ -13,7 +13,7 @@ class BasicsController < ApplicationController
    def show
      @personal = Info.find_by(user_id: current_user.id)
      @education_details = EducationDetail.where(user_id: current_user.id)
-     @work_experience = WorkExperience.where(user_id: current_user.id)
+     @work_experiences = WorkExperience.where(user_id: current_user.id)
    end
     def home
     
